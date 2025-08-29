@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+openai
+pandas
+plotly
+aiofiles
+pytest
+httpx
+pdfkit
+langchain
+langchain-community
+ydata-profiling
+sweetviz
+autoviz
+lux
+azure-ai-inference
