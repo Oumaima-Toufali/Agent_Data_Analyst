@@ -227,46 +227,112 @@ def unique_key(prefix: str = "key") -> str:
 
 # ------------------- PAGES (home, upload, chatbot) -------------------
 def home_page():
-    st.markdown('<h1 class="main-header"> Explorez vos données intelligemment avec notre Agent IA</h1>', unsafe_allow_html=True)
-    st.markdown('<p class="description">Transformez vos données en insights précieux grâce à notre assistant IA intelligent. Posez des questions en langage naturel et obtenez des analyses professionnelles instantanément.</p>', unsafe_allow_html=True)
-    st.markdown("###  Démo rapide")
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-        st.caption("Découvrez comment utiliser l'Agent IA en 2 minutes")
-    with st.expander(" Comment poser de bonnes questions ?"):
-        st.markdown("""
-        *Exemples de questions efficaces :*
-        - "Montre-moi les corrélations entre les variables"
-        - "Y a-t-il des valeurs aberrantes dans mes données ?"
-        - "Crée un graphique des ventes par mois"
-        - "Quelles sont les tendances principales ?"
-        - "Analyse la distribution de la variable prix"
-        """)
-    with st.expander(" Exemples d'analyses possibles"):
-        st.markdown("""
-        *L'Agent IA peut vous aider à :*
-        - Analyser les distributions statistiques
-        - Identifier les corrélations et tendances
-        - Détecter les valeurs aberrantes
-        - Créer des visualisations interactives
-        - Générer des résumés statistiques
-        - Proposer des insights métier
-        """)
-    with st.expander(" Conseils pour de meilleurs résultats"):
-        st.markdown("""
-        *Pour optimiser vos analyses :*
-        - Assurez-vous que vos données sont bien formatées
-        - Posez des questions spécifiques
-        - Explorez progressivement vos données
-        - N'hésitez pas à demander des clarifications
-        """)
+    # Style CSS personnalisé
+    st.markdown("""
+    <style>
+    /* Titre principal */
+    .main-header {
+        font-size: 2.5em;
+        font-weight: bold;
+        color: #1f2937;  /* gris foncé */
+        text-align: center;
+        margin-bottom: 0.5em;
+    }
+
+    /* Description */
+    .description {
+        font-size: 1.1em;
+        color: #4b5563;  /* gris moyen */
+        text-align: center;
+        margin-bottom: 2em;
+    }
+
+    /* Expandeurs */
+    .st-expander > div:first-child {
+        background-color: #f3f4f6;  /* gris clair */
+        border-radius: 8px;
+        padding: 10px;
+        font-weight: 500;
+        color: #111827;
+    }
+
+    /* Bouton central */
+    .stButton>button {
+        background-color: #2563eb;  /* bleu */
+        color: white;
+        font-size: 1.1em;
+        font-weight: bold;
+        padding: 0.5em 1.5em;
+        border-radius: 8px;
+        border: none;
+    }
+    .stButton>button:hover {
+        background-color: #1d4ed8;  /* bleu plus foncé */
+        cursor: pointer;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # Titre principal
+    st.markdown(
+        '<h1 class="main-header">Explorez vos données intelligemment avec notre Agent IA</h1>',
+        unsafe_allow_html=True
+    )
+    # Description
+    st.markdown(
+        '<p class="description">Transformez vos données en insights précieux grâce à notre assistant IA intelligent. Posez des questions en langage naturel et obtenez des analyses professionnelles instantanément.</p>',
+        unsafe_allow_html=True
+    )
+
+    # Sections avec expandeurs
+    sections = {
+        "Comment poser de bonnes questions ?": [
+            "Montre-moi les corrélations entre les variables",
+            "Y a-t-il des valeurs aberrantes dans mes données ?",
+            "Crée un graphique des ventes par mois",
+            "Quelles sont les tendances principales ?",
+            "Analyse la distribution de la variable prix"
+        ],
+        "Exemples d'analyses possibles": [
+            "Analyser les distributions statistiques",
+            "Identifier les corrélations et tendances",
+            "Détecter les valeurs aberrantes",
+            "Créer des visualisations interactives",
+            "Générer des résumés statistiques",
+            "Proposer des insights métier"
+        ],
+        "Conseils pour de meilleurs résultats": [
+            "Assurez-vous que vos données sont bien formatées",
+            "Posez des questions spécifiques",
+            "Explorez progressivement vos données",
+            "N'hésitez pas à demander des clarifications"
+        ]
+    }
+
+    for title, items in sections.items():
+        with st.expander(title):
+            st.markdown("\n".join([f"- {item}" for item in items]))
+
     st.markdown("---")
+
+    # Bouton central pour démarrer l'analyse
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
-        if st.button(" Commencer l'analyse", type="primary", use_container_width=True):
+        if st.button("Commencer l'analyse", type="primary", use_container_width=True):
             st.session_state.current_page = 'upload'
             st.rerun()
+
+    # Footer sur le pouvoir des données
+    st.markdown("""
+    <hr style="margin:2em 0;">
+    <p style="
+        text-align: center; 
+        color: #6b7280; 
+        font-weight: 500; 
+        font-size: 0.95em;">
+        "Le pouvoir des données réside dans leur capacité à révéler des insights et guider vos décisions."
+    </p>
+    """, unsafe_allow_html=True)
 
 # ---------------- UPLOAD PAGE ----------------
 def upload_page():
