@@ -52,6 +52,7 @@ AI-Data-Analyst-Agent/
 ├── Makefile                 
 └── README.md
 
+---
 
 
 ## 🚀 Installation
@@ -60,6 +61,8 @@ AI-Data-Analyst-Agent/
 git clone https://github.com/ton-utilisateur/AI-Data-Analyst-Agent.git
 cd AI-Data-Analyst-Agent
 
+---
+
 2️⃣ Créer un environnement virtuel :
 python -m venv .venv
 # Linux / Mac
@@ -67,10 +70,13 @@ source .venv/bin/activate
 # Windows
 .venv\Scripts\activate
 
+---
+
 3️⃣ Installer les dépendances :
 pip install -r requirements.txt
 
 ---
+
 ## 🔑 Configuration `.env`
 
 Le projet utilise un fichier `.env` pour stocker les variables sensibles et les chemins de données.
@@ -91,6 +97,7 @@ DATA_DIR=data
 CLEAN_DIR=data/cleaned
 CHAT_DB=data/chat_history.db
 
+---
 
 ## 🏃‍♂️ Lancer le projet
 
@@ -128,6 +135,7 @@ docker-compose logs -f
 - ⚙️ Robustesse : multi-threading et retry sur appels LLM  
 
 ---
+
 ##🧠 Exemples d’utilisation
 
 - "Résumez ce dataset en 5 insights clés"
@@ -137,6 +145,8 @@ docker-compose logs -f
 - "Tracez la distribution des âges des clients"
 
 - "Détectez les anomalies dans les séries temporelles des ventes"
+
+---
 
 ## 🔧 Bonnes pratiques suivies
 
