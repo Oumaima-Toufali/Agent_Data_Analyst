@@ -1,32 +1,57 @@
-# 🤖 AI Data Analyst Agent
+# 🤖 AI Data Analyst Agent (GPT-4.1 + LangChain)
 
 **Projet :** Agent IA pour l'analyse et la visualisation de données.  
-Basé sur **FastAPI** et **Streamlit**, intégrant des services **LLM**, **EDA automatique**, et la génération de graphiques interactifs.
+Basé sur **FastAPI** et **Streamlit**, intégrant **GPT-4.1 via LangChain**, **EDA automatisée**, et génération de graphiques interactifs.
+
+Tout est conçu pour analyser **CSV/Excel**, générer des **insights**, visualiser les données et répondre aux questions **en langage naturel**.
 
 ---
 
-## 📂 Structure du projet
+## 🚀 Features
 
+- 🧠 Posez des questions sur vos datasets avec GPT-4.1  
+- 📊 EDA automatisée (profiling, corrélations, distributions, séries temporelles)  
+- 📈 Visualisations interactives (bar, scatter, line, heatmaps)  
+- 📂 Upload et nettoyage de données sécurisés  
+- 🐍 REPL Python sécurisé pour manipuler les DataFrames  
+- ⚙️ Multi-threading et retry pour les appels LLM via LangChain  
+
+---
+
+## 🧱 Tech Stack
+
+| Layer        | Tool Used                                    |
+|--------------|----------------------------------------------|
+| LLM Engine   | GPT-4.1 via [LangChain](https://www.langchain.com) |
+| Web UI       | [Streamlit](https://streamlit.io)            |
+| Backend API  | [FastAPI](https://fastapi.tiangolo.com)      |
+| Data Analysis| `pandas`, `ydata-profiling`, `sweetviz`, `autoviz` |
+| Visualization| `plotly`, `matplotlib`, `seaborn`, `lux`     |
+| Database     | SQLite (chat history)                        |
+
+---
+
+## 🗂️ Project Structure
+
+```text
 AI-Data-Analyst-Agent/
-│
-├── backend/                 # API, services et utilitaires
-│   ├── api/                 # Endpoints FastAPI
-│   ├── services/            # Logique métier (LLM, EDA, outils)
-│   ├── models/              # Schémas Pydantic, ML models, etc.
-│   └── utils/               # Fonctions utilitaires (charts, logging, etc.)
-│
-├── frontend/                # Application Streamlit
-│   └── main.py
-│
-├── tests/                   # Tests unitaires avec pytest
+├── backend/                 
+│   ├── api/                 
+│   ├── services/            
+│   ├── models/              
+│   └── utils/               
+├── frontend/                
+│   └── main.py              
+├── tests/                   
 │   ├── test_llm_service.py
 │   └── test_cleaning_service.py
-│
-├── .gitignore               # Fichiers ignorés par Git
-├── README.md                # Documentation du projet
-├── requirements.txt         # Dépendances Python
-├── Makefile                 # Commandes pratiques (install, run, test)
-└── LICENSE                  # Licence du projet
+├── data/                    
+├── requirements.txt         
+├── .gitignore
+├── .env.example             
+├── Makefile                 
+└── README.md
+
 
 
 ## 🚀 Installation
@@ -82,7 +107,18 @@ streamlit run frontend/main.py
 pytest tests/ -v
 
 ---
+## 🐳 Déploiement avec Docker (optionnel)
 
+Construire et lancer les conteneurs pour backend et frontend :
+
+docker-compose build
+docker-compose up
+docker-compose down
+docker-compose logs -f
+
+
+⚠ Note : Depuis le frontend Docker, utilisez http://backend:8000 pour appeler le backend.
+---
 ## ⚡ Fonctionnalités principales
 
 - 🔍 Analyse intelligente des données  
@@ -92,6 +128,15 @@ pytest tests/ -v
 - ⚙️ Robustesse : multi-threading et retry sur appels LLM  
 
 ---
+##🧠 Exemples d’utilisation
+
+- "Résumez ce dataset en 5 insights clés"
+
+- "Montrez les corrélations entre les variables numériques"
+
+- "Tracez la distribution des âges des clients"
+
+- "Détectez les anomalies dans les séries temporelles des ventes"
 
 ## 🔧 Bonnes pratiques suivies
 

@@ -1,0 +1,23 @@
+# Serveur API
+fastapi
+uvicorn[standard]
+aiofiles
+python-dotenv
+httpx
+pdfkit
+
+# LLM et intégration GPT
+openai
+langchain
+langchain-community
+azure-ai-inference
+
+# Data analysis (pour traitements backend)
+pandas
+ydata-profiling
+sweetviz
+autoviz
+lux
+
+# Tests
+pytest

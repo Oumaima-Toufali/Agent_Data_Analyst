@@ -1,0 +1,9 @@
+# UI
+streamlit
+
+# Data handling & visualization
+pandas
+plotly
+lux
+
+

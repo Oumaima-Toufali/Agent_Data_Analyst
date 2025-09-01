@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: ai_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./data:/app/data
+    env_file:
+      - .env
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: ai_frontend
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./frontend:/app
+      - ./data:/app/data
+    env_file:
+      - .env
+    depends_on:
+      - backend
